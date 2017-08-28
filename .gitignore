@@ -1,0 +1,4 @@
+settings/config.js
+settings/client_secret.json
+.DS_Store
+node_modules
