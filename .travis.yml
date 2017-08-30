@@ -5,4 +5,4 @@ node_js:
 - '8'
 
 script:
-- node script.js
+- node app.js
