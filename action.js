@@ -19,7 +19,7 @@ const CONFIG = init();
 const BASEURL = `https://connpass.com/login/?next=https%3A//connpass.com/event`;
 const EVENT_URL = `${BASEURL}/${CONFIG.EVENT_ID}/edit/basic`;
 
-module.exports = async () => {
+const main = async () => {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     await page.emulate(iPhone);
@@ -52,3 +52,9 @@ module.exports = async () => {
     await page.screenshot({path: 'example.png'});
     browser.close();
 };
+
+if(process.argv[2] === '-exec'){
+    main();
+}else{
+    module.exports = main;   
+}
