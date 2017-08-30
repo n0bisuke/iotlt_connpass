@@ -1,16 +1,13 @@
 'use strict';
 
-const fs = require('fs');
-const express = require('express');
+const io = require('socket.io-client');
 const action = require('./action');
-const app = express();
-const PORT = process.env.PORT || 3000;
-// app.use(express.static(__dirname));
+const socket = io('mysocket.azurewebsites.net');
 
-app.get('/', (req, res) => {
-    res.send(process.version);
-    console.log('start...');
-    action();
+socket.on('connect', () => {
+    socket.on('chat message', (msg) => {
+        console.log(`message: ${msg}`);
+        console.log('start...');
+        action();
+    });
 });
- 
-app.listen(PORT);
