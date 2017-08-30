@@ -1,2 +1,2 @@
 
-puppeteerで自動化
+puppeteerで自動化する
