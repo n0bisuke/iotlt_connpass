@@ -9,7 +9,7 @@ const sheets = google.sheets('v4');
 // at ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.credentials/';
-const TOKEN_PATH = TOKEN_DIR + '/hoge/sheets.googleapis.com-nodejs-quickstart.json';
+const TOKEN_PATH = TOKEN_DIR + '/sheets.googleapis.com-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
 
