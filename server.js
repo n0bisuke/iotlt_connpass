@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.send(process.version);
     console.log('start...');
-    action();
+    // action();
 });
  
 app.listen(PORT);
