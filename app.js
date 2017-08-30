@@ -13,6 +13,7 @@ const EVENT_URL = `${BASEURL}/${CONFIG.EVENT_ID}/edit/basic`;
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     await page.emulate(iPhone);
+
     //ログイン
     await page.goto(EVENT_URL);
     await page.focus(`input[name=username]`);
@@ -36,9 +37,8 @@ const EVENT_URL = `${BASEURL}/${CONFIG.EVENT_ID}/edit/basic`;
     await page.click(`input[value=保存]`);
     console.log(`保存done`);
 
-    await page.waitFor(1000);
-
     //撮影
+    await page.waitFor(1000);
     await page.screenshot({path: 'example.png'});
     browser.close();
 })();
