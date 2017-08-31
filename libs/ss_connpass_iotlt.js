@@ -24,7 +24,7 @@ const convertMD = (res) => {
     let text = '';
     for(let i = 0,len=rows.length; i<len; i++){
         const head = `LT`;
-        const newline = (i<len-1) ? '\n' : '\n|21:00	|懇親会	|'; 
+        const newline = (i<len-1) ? '\n' : '\n|21:00'; 
         rows[i][1] = rows[i][1] ? rows[i][1] : '未定';
         rows[i][2] = rows[i][2] ? rows[i][2] : '未定';
         text += `||${head}: ${rows[i][1]} | ${rows[i][2]} ${newline}`;
