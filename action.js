@@ -5,7 +5,6 @@ const devices = require('puppeteer/DeviceDescriptors');
 const iPhone = devices['iPhone 6'];
 const contetRewrite = require('./libs/rewrite');
 
-
 const init = () => {
     let config = {};
     config.USER_ID = process.env.CONNPASS_USER || require('./settings/config').USER_ID;
@@ -20,9 +19,11 @@ const CONFIG = init();
 const BASEURL = `https://connpass.com/login/?next=https%3A//connpass.com/event`;
 const EVENT_URL = `${BASEURL}/${CONFIG.EVENT_ID}/edit/basic`;
 
-const logging = (socket, message) => {
-    socket.emit(`chat message`,message);
-    socket.emit(`line_notify`,message);
+const logging = (socket = '', message) => {
+    if(socket !== ''){
+        socket.emit(`chat message`,message);
+        socket.emit(`line_notify`,message);
+    }
     console.log(message)
 }
 
@@ -53,9 +54,9 @@ const main = async (socket) => {
     const result = await page.evaluate(() => Promise.resolve(document.getElementById(`id_description_input`).value));
     logging(socket,`概要取得done`);
 
-    //概要を編集
+    //概要を編集 スプレットシートにアクセス
     const text = await contetRewrite(result, CONFIG.SS_ID, CONFIG.SS_RANGE);
-    logging(socket, text);
+    logging(socket, `スプレットシートアクセスdone`);
     logging(socket,`概要編集done`);
 
     //変更を保存
