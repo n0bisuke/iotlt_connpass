@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - app-puppeteer
+name: Build and deploy Node.js app to Azure Web App - connpastest
 
 on:
   push:
@@ -23,18 +23,15 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          PUPPETEER_CACHE_DIR=$(pwd)/node_modules/puppeteer npm install
+          npm install
           npm run build --if-present
           npm run test --if-present
-          npm prune --production
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -qr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: release.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'app-puppeteer'
+          app-name: 'connpastest'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7860BE1F4CBF4BDEABF91A1E595E5662 }}
           package: release.zip
