@@ -1,25 +1,23 @@
 {
-  "name": "connpass_auto_test",
+  "name": "iotlt_connpass",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "puppeteerで自動化する",
+  "main": "app.js",
   "scripts": {
-    "start": "node action.js -exec",
-    "server": "node server.js",
-    "github": "git add -A && git commit -m 'update' && git push origin master",
-    "deploy": "git add -A && git commit -m 'update' && git push webapp master",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n0bisuke/iotlt_connpass.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "google-auth-library": "^0.10.0",
-    "googleapis": "^21.3.0",
-    "puppeteer": "^0.10.1",
-    "socket.io-client": "^2.0.3"
+  "bugs": {
+    "url": "https://github.com/n0bisuke/iotlt_connpass/issues"
   },
-  "engines": {
-    "node": ">=8.1.0"
-  }
+  "dependencies": {
+    "puppeteer": "^19.3.0"
+  },
+  "homepage": "https://github.com/n0bisuke/iotlt_connpass#readme"
 }
