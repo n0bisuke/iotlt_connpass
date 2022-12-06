@@ -55,5 +55,5 @@ jobs:
         with:
           app-name: 'app-puppeteer'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EDD00BA0E7C4B30995772AC0D966C4F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7860BE1F4CBF4BDEABF91A1E595E5662 }}
           package: release.zip
